@@ -17,7 +17,7 @@ def generate_answer(prompt):
                 "content": prompt,
             }
         ],
-        model="openai/gpt-oss-120b",
+        model=os.getenv("MODEL_NAME"),
     )
 
     return chat_completion.choices[0].message.content
