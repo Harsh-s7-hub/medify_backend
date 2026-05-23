@@ -9,7 +9,10 @@ EMBEDDINGS_FILE = "faiss_cache/embeddings.npy"
 INDEX_FILE = "faiss_cache/faiss.index"
 
 print("Loading embedding model...")
-emb_model = SentenceTransformer('all-MiniLM-L6-v2')
+emb_model = SentenceTransformer(
+    'all-MiniLM-L6-v2',
+    device='cpu'
+)
 
 print("Loading corpus...")
 with open(CORPUS_FILE, "rb") as f:
