@@ -12,10 +12,20 @@ def generate_answer(prompt):
         model=model_name,
         messages=[
             {
+                "role": "system",
+                "content": (
+                    "You are a helpful medical AI assistant. "
+                    "Provide safe, medically relevant, concise answers. "
+                    "Do not give dangerous medical advice."
+                )
+            },
+            {
                 "role": "user",
                 "content": prompt
             }
-        ]
+        ],
+        temperature=0.3,
+        max_tokens=512
     )
 
     return completion.choices[0].message.content
